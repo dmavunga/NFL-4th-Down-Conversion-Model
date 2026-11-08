@@ -1,1 +1,5 @@
 Contribution update:
+For this milestone, I built our fourth-down dataset from the NFL play-by-play data for 1999 to 2025. 
+I filtered it to real fourth-down decisions and labeled each play as a go-for-it, a punt, or a field goal. 
+I split the data so we trained on 1999–2021, tuned on 2022–2023 and saved 2024–2025 for the final test. 
+I then built and tuned two models, a multinomial logistic regression and a gradient boosting model, and compared them to two simple baselines on the test seasons. Using the boosting model, I checked whether coaching behavior has changed over time. Coaches started going for it more often than the model expected around 2018, and the gap has kept growing since. The model also got less accurate in recent seasons, which backs that up. In 2024–25, the gap was biggest in certain combinations of field position and yards to go.
