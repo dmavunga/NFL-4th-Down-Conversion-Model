@@ -361,19 +361,23 @@ all_preds |>
 # 14. Interpretation, limitations, next steps, contributions
 
 See the written sections in the milestone submission.
-Overall we have 2 models (Multinomial Logistic & Gradient Boosting(XGBoost)) that we have trained and tested for the prediction on going for it on 4th down. The 
 
+Overall we have 2 models (Multinomial Logistic & Gradient Boosting(XGBoost)) that we have trained and tested for the prediction on going for it on 4th down. Based on the results the XGBoost did a better job at predicting more accurately to go for it on fourth down. Since we are using more recent years for the test dataset and trained on older data, we have identified with data and our intuition that coaches decision making has changed. Coaches are much more likely to go for it and our plots above will show this. Our predictions were showing more conservative playcalls vs the coaches actually deciding to go for it more. This can support the intuition that in today's NFL, coaches are more willing to break the old standard of conservative 4th down plays and gamble more to go for it.
+
+Since we know that coaching decisions have changed more recently, we can retrain our model on more recent historical data to see if that can help better predict with today's measures. Also we can possibly identify another variable to bring back or take out in order to improve model predictions.  
 
 Contributions:
 
 Chaikou - I built our fourth-down dataset from the NFL play-by-play data for 1999 to 2025. 
 I filtered it to real fourth-down decisions and labeled each play as a go-for-it, a punt, or a field goal. I split the data so we trained on 1999–2021, tuned on 2022–2023 and saved 2024–2025 for the final test. I then built and tuned two models, a multinomial logistic regression and a gradient boosting model, and compared them to two simple baselines on the test seasons. Using the boosting model, I checked whether coaching behavior has changed over time. Coaches started going for it more often than the model expected around 2018, and the gap has kept growing since. The model also got less accurate in recent seasons, which backs that up. In 2024–25, the gap was biggest in certain combinations of field position and yards to go.
 
-Dillon - 
+Dillon - I organized the code and supplemental information via github. I had completed the data preprocessing and loading into the R platform. Also did preliminary exploratory analysis to better understand the data. I was able to identify ways for us to use each season data and concatenate together. After Chaikou implemented model, I was able to write conclusion and interpret model.
 
+# AI Statement
+We have used AI to assist in creating shells for the code structure and for giving us ideal steps to verify within our model structure. We would then iterate on our actual thoughts and implementation and make our adjustments as needed to best fit our model. 
 
 ```{r}
-install.packages("nfl4th")
+#install.packages("nfl4th")
 ```
 ```{r}
 library(nfl4th)
